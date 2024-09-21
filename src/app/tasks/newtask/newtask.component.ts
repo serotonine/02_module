@@ -1,12 +1,14 @@
-import { Component, Output, EventEmitter, inject, Input } from "@angular/core";
-import { TasksService } from "../tasks.service";
-import { type Task } from "../task/task.model";
+import { Component, Output, EventEmitter, inject, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { TasksService } from '../tasks.service';
+import { type Task } from '../task/task.model';
 
 @Component({
-  selector: "app-newtask",
-  standalone: false,
-  templateUrl: "./newtask.component.html",
-  styleUrl: "./newtask.component.css",
+  selector: 'app-newtask',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './newtask.component.html',
+  styleUrl: './newtask.component.css',
 })
 export class NewtaskComponent {
   // Another way to implement a service.
@@ -20,14 +22,14 @@ export class NewtaskComponent {
   }
   // Collect entered datas.
   @Output() addTask = new EventEmitter<Task>();
-  enterTitle = "";
-  enterSummary = "";
-  enterDate = "";
+  enterTitle = '';
+  enterSummary = '';
+  enterDate = '';
   onSubmit() {
     this.taskService.addTask(
       {
-        id: "",
-        userId: "",
+        id: '',
+        userId: '',
         title: this.enterTitle,
         summary: this.enterSummary,
         dueDate: this.enterDate,
