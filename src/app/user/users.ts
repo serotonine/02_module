@@ -11,7 +11,7 @@ export const USERS = [
   },
   {
     id: 'u3',
-    name: 'Marcus Johnson',
+    name: 'Marcus Robert',
     avatar: 'user-3.jpg',
   },
   {
